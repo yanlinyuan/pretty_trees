@@ -11,9 +11,7 @@ trees_df = pd.read_csv("trees.csv")
 trees_df = trees_df.dropna(subset=["longitude", "latitude"])
 trees_df_filtered = trees_df[trees_df["legal_status"] == "Private"]
 
-#edited_df = st.experimental_data_editor(trees_df_filtered)  
-#Please replace st.experimental_data_editor with st.data_editor.
-edited_df = st.data_editor(trees_df_filtered)  
+edited_df = st.data_editor(trees_df_filtered)   #Please replace st.experimental_data_editor with st.data_editor.
 trees_df.loc[edited_df.index] = edited_df
 
 if st.button("Save data and overwrite:"):
